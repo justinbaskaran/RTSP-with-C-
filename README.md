@@ -2,6 +2,16 @@
 
 A straightforward C++ application that performs real-time object detection using OpenCV. This project demonstrates basic computer vision capabilities with a focus on simplicity and ease of use.
 
+Used AI powered cursor:
+1) README.md
+2) Makefile generation
+3) RTSP:
+a) The skeleton of the object detection program ( c++ adapter class) was generated using cursor.
+
+Where I am trying my own hand at AI:
+1) Trying to build my neural network by myself, with chatGPT and Cursor to aid in some boilerplate code generation.
+2) AI to get the tricky logic (like complicated regex expressions)
+
 ## Features
 
 - Real-time video capture from webcam
