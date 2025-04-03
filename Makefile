@@ -1,17 +1,13 @@
-SRCS = $(wildcard *.cpp)
-PROGS = $(patsubst %.cpp,%,$(SRCS))
-OBJS = $(SRCS:.cpp=.o)
-TEMPS = $(SRCS:.cpp=.txt)
- 
-CFLAGS = -std=c++11 `pkg-config --cflags opencv`
-LDFLAGS = `pkg-config --libs opencv`
- 
-all: $(PROGS)
- 
-%: %.cpp
- 
-	g++  $(CFLAGS)  -o $@ $< $(LDFLAGS) -lpthread
- 
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall -Wextra `pkg-config --cflags opencv4`
+LDFLAGS = `pkg-config --libs opencv4`
+
+all: video_detector
+
+video_detector: rtsp-with-object-detection.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
+
 clean:
-	@rm -f $(PROGS) $(OBJS) $(TEMPS)
-	echo "Clean!"
+	rm -f video_detector
+
+.PHONY: all clean
